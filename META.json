@@ -1,7 +1,7 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "module to replace document file by its text contents",
    "author" : [
-      "Kaz Utashiro <kaz@utashiro.com>"
+      "Kazumasa Utashiro"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v3.1.4, CPAN::Meta::Converter version 2.143240",
@@ -42,7 +42,7 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008001"
+            "perl" : "5.014"
          }
       },
       "test" : {
@@ -52,7 +52,21 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kaz-utashiro/optex-textconv/issues"
+      },
+      "homepage" : "https://github.com/kaz-utashiro/optex-textconv",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/kaz-utashiro/optex-textconv.git",
+         "web" : "https://github.com/kaz-utashiro/optex-textconv"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:UTASHIRO",
+   "x_contributors" : [
+      "Kaz Utashiro <kaz@utashiro.com>"
+   ],
    "x_static_install" : 1
 }
