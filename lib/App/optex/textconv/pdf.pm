@@ -26,9 +26,9 @@ my %pagebreak = (
 	sub { $rule };
     },
     number => sub {
-	my $n;
-	my $format = "$param{format}\n\n";
-	sub { sprintf $format, ++$n };
+	my $n = 1;
+	my $format = $param{format} . "\n\n";
+	sub { sprintf $format, $n++ };
     },
     pf => sub {
 	sub { "\f" };
