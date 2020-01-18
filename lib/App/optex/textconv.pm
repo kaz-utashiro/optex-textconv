@@ -42,11 +42,41 @@ Next command simply produces the same result.
 
     $ diff OLD.docx NEW.docx
 
+=head1 INSTALL
+
+=head2 CPANM
+
+    $ cpanm App::optex::textconv
+    or
+    $ curl -sL http://cpanmin.us | perl - App::optex::textconv
+
+=head2 GIT
+
+Those are sample configurations using L<App::optex::textconv> in git
+environment.
+
+	~/.gitconfig
+		[diff "msdoc"]
+			textconv = optex -Mtextconv cat
+		[diff "pdf"]
+			textconv = optex -Mtextconv cat
+		[diff "jpg"]
+			textconv = optex -Mtextconv cat
+
+	~/.config/git/attributes
+		*.docx   diff=msdoc
+		*.pptx   diff=msdoc
+		*.xlmx   diff=msdoc
+		*.pdf    diff=pdf
+		*.jpg    diff=jpg
+
 =head1 SEE ALSO
 
 L<https://github.com/kaz-utashiro/optex>
 
 L<https://github.com/kaz-utashiro/optex-textconv>
+
+L<https://qiita.com/kaz-utashiro/items/23fd825bd325240592c2>
 
 =head1 LICENSE
 
