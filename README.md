@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/kaz-utashiro/optex-textconv.svg?branch=master)](https://travis-ci.com/kaz-utashiro/optex-textconv)
 # NAME
 
 textconv - optex module to replace document file by its text contents
