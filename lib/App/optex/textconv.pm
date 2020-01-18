@@ -186,6 +186,7 @@ sub textconv {
 	    my $tmp = $persist[@persist] = new App::optex::Tmpfile;
 	    my $data = do {
 		no strict 'refs';
+		use charnames ':full';
 		local $_ = decode 'utf8', &$func($_);
 		s/[\p{Private_Use}\p{Unassigned}]/\N{GETA MARK}/g;
 		encode 'utf8', $_;
