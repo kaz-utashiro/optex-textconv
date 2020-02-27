@@ -39,7 +39,7 @@ sub to_text {
     my $file = shift;
     my $type = ($file =~ /\.(pdf)$/i)[0] or return;
     my $break = $pagebreak{$param{pagebreak}}->();
-    local $_ = qx{ pdftotext \"$file\" - };
+    local $_ = qx{ pdftotext -q \"$file\" - };
     s/\f/$break->()/ger;
 }
 
