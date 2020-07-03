@@ -1,8 +1,7 @@
 package App::optex::textconv::Zip;
 
-use strict;
-use warnings;
 use v5.14;
+use warnings;
 
 sub new {
     my $class = shift;

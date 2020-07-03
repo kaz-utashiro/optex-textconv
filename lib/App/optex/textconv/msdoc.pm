@@ -2,9 +2,8 @@ package App::optex::textconv::msdoc;
 
 our $VERSION = '0.08';
 
-use strict;
-use warnings;
 use v5.14;
+use warnings;
 use Carp;
 use utf8;
 
@@ -57,7 +56,7 @@ use App::optex::textconv::Zip;
 
 sub to_text {
     my $zipfile = shift;
-    my $zip = new App::optex::textconv::Zip $zipfile;
+    my $zip = App::optex::textconv::Zip->new($zipfile);
     my $type = $zip->suffix or return;
     join "\n", map {
 	my $text = extract_text $zip->extract($_), $type;

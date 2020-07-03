@@ -1,12 +1,10 @@
 package App::optex::textconv;
 
-use 5.014;
-use strict;
+our $VERSION = '0.08';
+
+use v5.14;
 use warnings;
-
 use Encode;
-
-our $VERSION = "0.08";
 
 =encoding utf-8
 
@@ -185,7 +183,7 @@ sub textconv {
 		}
 	    };
 	    use App::optex::Tmpfile;
-	    my $tmp = $persist[@persist] = new App::optex::Tmpfile;
+	    my $tmp = $persist[@persist] = App::optex::Tmpfile->new;
 	    my $data = do {
 		no strict 'refs';
 		use charnames ':full';
