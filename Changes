@@ -2,6 +2,12 @@ Revision history for Perl extension App-optex-textconv
 
 {{$NEXT}}
 
+0.09 2020-09-19T03:35:37Z
+
+    - Convert tab to double space.
+    - Handle entity firerences (&amp; &gt; &lt;).
+    - Eliminate indirect object call.
+
 0.08 2020-03-06T01:03:27Z
 
     - Add -Mtc alias module.
