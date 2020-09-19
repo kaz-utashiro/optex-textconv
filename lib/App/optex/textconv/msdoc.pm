@@ -15,7 +15,7 @@ our @CONVERTER = (
     [ qr/\.xlsx$/ => \&to_text ],
     );
 
-sub extract_text {
+sub xml2text {
     local $_ = shift;
     my $type = shift;
     my $xml_re = qr/<\?xml\b[^>]*\?>\s*/;
@@ -74,7 +74,7 @@ sub to_text {
     my $zip = App::optex::textconv::Zip->new($zipfile);
     my $type = $zip->suffix or return;
     join "\n", map {
-	my $text = extract_text $zip->extract($_), $type;
+	my $text = xml2text $zip->extract($_), $type;
 	$text ne "" ? ("[ $_ ]\n", $text) : ();
     }
     $zip->list;
