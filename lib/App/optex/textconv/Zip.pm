@@ -31,7 +31,13 @@ sub list {
 	my $suffix = $obj->suffix;
 	my @entry = do {
 	    if ($suffix eq 'docx') {
-		map { "word/$_.xml" } qw(document endnotes footnotes);
+		my %select = map { $_ => 1 } qw(document endnotes footnotes);
+		do {
+		    map  { $_->[0] }
+		    grep { $select{$_->[1]} }
+		    map  { m{(word/(.*)\.xml)$} ? [ $1, $2 ] : () }
+		    `unzip -l \"$zipfile\" word/*.xml`;
+		};
 	    }
 	    elsif ($suffix eq 'xlsx') {
 		map { "xl/$_.xml" } qw(sharedStrings);
@@ -39,7 +45,7 @@ sub list {
 	    elsif ($suffix eq 'pptx') {
 		map  { $_->[0] }
 		sort { $a->[1] <=> $b->[1] }
-		map  { m{(ppt/slides/slide(\d+)\.xml)} ? [ $1, $2 ] : () }
+		map  { m{(ppt/slides/slide(\d+)\.xml)$} ? [ $1, $2 ] : () }
 		`unzip -l \"$zipfile\" ppt/slides/slide*`;
 	    }
 	};
