@@ -78,16 +78,16 @@ L<https://github.com/kaz-utashiro/optex-textconv>
 
 L<https://qiita.com/kaz-utashiro/items/23fd825bd325240592c2>
 
-=head1 LICENSE
-
-Copyright (C) Kazumasa Utashiro.
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
 =head1 AUTHOR
 
 Kazumasa Utashiro
+
+=head1 LICENSE
+
+Copyright 2019-2020 Kazumasa Utashiro.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
 

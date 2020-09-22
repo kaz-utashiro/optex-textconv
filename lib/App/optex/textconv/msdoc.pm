@@ -6,6 +6,7 @@ use v5.14;
 use warnings;
 use Carp;
 use utf8;
+use Data::Dumper;
 
 use App::optex::textconv::Converter 'import';
 
@@ -67,17 +68,36 @@ sub _xml2text {
     $text;
 }
 
-use App::optex::textconv::Zip;
+use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
 
 sub to_text {
     my $zipfile = shift;
-    my $zip = App::optex::textconv::Zip->new($zipfile);
-    my $type = $zip->suffix or return;
-    join "\n", map {
-	my $text = xml2text $zip->extract($_), $type;
-	$text ne "" ? ("[ $_ ]\n", $text) : ();
+    my $type = ($zipfile =~ /\.(docx|xlsx|pptx)$/)[0] or return;
+    my $zip = Archive::Zip->new($zipfile) or die;
+    my @contents;
+    for my $entry (get_list($zip, $type)) {
+	my $member = $zip->memberNamed($entry) or next;
+	my $xml = $member->contents or next;
+	my $text = xml2text $xml, $type or next;;
+	push @contents, "[ $entry ]\n\n$text";
     }
-    $zip->list;
+    join "\n", @contents;
+}
+
+sub get_list {
+    my($zip, $type) = @_;
+    if ($type eq 'docx') {
+	map { "word/$_.xml" } qw(document endnotes footnotes);
+    }
+    elsif ($type eq 'xlsx') {
+	map { "xl/$_.xml" } qw(sharedStrings);
+    }
+    elsif ($type eq 'pptx') {
+	map  { $_->[0] }
+	sort { $a->[1] <=> $b->[1] }
+	map  { m{(ppt/slides/slide(\d+)\.xml)$} ? [ $1, $2 ] : () }
+	$zip->memberNames;
+    }
 }
 
 1;
