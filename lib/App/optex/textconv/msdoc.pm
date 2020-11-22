@@ -6,6 +6,7 @@ use v5.14;
 use warnings;
 use Carp;
 use utf8;
+use Encode;
 use Data::Dumper;
 
 use App::optex::textconv::Converter 'import';
@@ -71,15 +72,16 @@ sub _xml2text {
 use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
 
 sub to_text {
-    my $zipfile = shift;
-    my $type = ($zipfile =~ /\.(docx|xlsx|pptx)$/)[0] or return;
-    my $zip = Archive::Zip->new($zipfile) or die;
+    my $file = shift;
+    my $type = ($file =~ /\.(docx|xlsx|pptx)$/)[0] or return;
+    my $zip = Archive::Zip->new($file) or die;
     my @contents;
     for my $entry (get_list($zip, $type)) {
 	my $member = $zip->memberNamed($entry) or next;
 	my $xml = $member->contents or next;
-	my $text = xml2text $xml, $type or next;;
-	push @contents, "[ $entry ]\n\n$text";
+	my $text = xml2text $xml, $type or next;
+	$file = encode 'utf8', $file if utf8::is_utf8($file);
+	push @contents, "[ \"$file\" $entry ]\n\n$text";
     }
     join "\n", @contents;
 }
