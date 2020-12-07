@@ -1,6 +1,6 @@
 package App::optex::textconv::msdoc;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use v5.14;
 use warnings;
@@ -9,6 +9,7 @@ use utf8;
 use Encode;
 use Data::Dumper;
 
+use App::optex v0.3;
 use App::optex::textconv::Converter 'import';
 
 our @CONVERTER = (
@@ -69,7 +70,7 @@ sub _xml2text {
     $text;
 }
 
-use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
+use Archive::Zip 1.37 qw( :ERROR_CODES :CONSTANTS );
 
 sub to_text {
     my $file = shift;
