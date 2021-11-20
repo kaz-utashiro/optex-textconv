@@ -35,11 +35,45 @@ Next command simply produces the same result.
 
     $ diff OLD.docx NEW.docx
 
+## FILE FORMATS
+
+- msdoc
+
+    Microsoft office format files in XML (.docx, .pptx, .xlsx, .docm,
+    .pptm, .xlsm).
+    See [App::optex::textconv::msdoc](https://metacpan.org/pod/App::optex::textconv::msdoc).
+
+- pdf
+
+    Use [pdftotext(1)](http://man.he.net/man1/pdftotext) command to covert PDF format.
+    See [App::optex::textconv::pdf](https://metacpan.org/pod/App::optex::textconv::pdf).
+
+- jpeg
+
+    JPEG files is converted to their exif information (.jpeg, .jpg).
+
+- http
+
+    Name start with `http://` or `https://` is converted to text data
+    translated by [w3c(1)](http://man.he.net/man1/w3c) command.
+
+- pandoc
+
+    Use [pandoc](https://pandoc.org/) command to translate Microsoft
+    office document in XML format.
+    See [App::optex::textconv::pandoc](https://metacpan.org/pod/App::optex::textconv::pandoc).
+
+- tika
+
+    Use [Pache Tika](https://tika.apache.org/) command to translate
+    Microsoft office document in XML and non-XML format.
+    See [App::optex::textconv::tika](https://metacpan.org/pod/App::optex::textconv::tika).
+
 # MICROSOFT DOCUMENTS
 
 Microsoft office document in XML format (.docx, .pptx, .xlsx) is
 converted to plain text by original code implemented in
-`App::optex::textconv::msdoc` module.  Algorithm used in this module
+[App::optex::textconv::msdoc](https://metacpan.org/pod/App::optex::textconv::msdoc) module.  Algorithm used in this module
 is extremely simple, and consequently runs fast.
 
 Two module are included in this distribution to use other external
