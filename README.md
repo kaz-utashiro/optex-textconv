@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/kaz-utashiro/optex-textconv.svg?branch=master)](https://travis-ci.com/kaz-utashiro/optex-textconv)
+[![Actions Status](https://github.com/kaz-utashiro/optex-textconv/workflows/test/badge.svg)](https://github.com/kaz-utashiro/optex-textconv/actions) [![MetaCPAN Release](https://badge.fury.io/pl/App-optex-textconv.svg)](https://metacpan.org/release/App-optex-textconv)
 # NAME
 
 textconv - optex module to replace document file by its text contents
