@@ -9,9 +9,9 @@ use Carp;
 use App::optex::textconv::Converter 'import';
 
 our @CONVERTER = (
-    [ qr/\.doc[xm]$/ => \&to_text ],
-    [ qr/\.ppt[xm]$/ => \&to_text ],
-    [ qr/\.xls[xm]$/ => \&to_text ],
+    [ qr/\.doc[xm]?$/ => \&to_text ],
+    [ qr/\.ppt[xm]?$/ => \&to_text ],
+    [ qr/\.xls[xm]?$/ => \&to_text ],
     );
 
 sub to_text {
