@@ -68,7 +68,7 @@
          "web" : "https://github.com/kaz-utashiro/optex-textconv"
       }
    },
-   "version" : "0.12",
+   "version" : "0.13",
    "x_authority" : "cpan:UTASHIRO",
    "x_contributors" : [
       "Kazumasa Utashiro <kaz@utashiro.com>"
