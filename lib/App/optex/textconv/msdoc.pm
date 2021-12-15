@@ -12,6 +12,8 @@ use Data::Dumper;
 use App::optex v0.3;
 use App::optex::textconv::Converter 'import';
 
+our @EXPORT_OK = qw(to_text get_list);
+
 our @CONVERTER = (
     [ qr/\.doc[xm]$/ => \&to_text ],
     [ qr/\.ppt[xm]$/ => \&to_text ],
