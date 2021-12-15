@@ -9,14 +9,20 @@ sub import {
     my $callpkg = caller;
 
     if ($pkg eq __PACKAGE__ and @_ and $_[0] eq "import") {
-	*{$callpkg."::import"} = \&import;
+	*{"$callpkg\::import"} = \&import;
 	return;
     }
 
-    my $from = \@{"$pkg\::CONVERTER"};
-    my $to   = \@{"$callpkg\::CONVERTER"};
-
-    unshift @$to, @$from;
+    if (@_ == 0) {
+	my $from = \@{"$pkg\::CONVERTER"};
+	my $to   = \@{"$callpkg\::CONVERTER"};
+	unshift @$to, @$from;
+    }
+    else {
+	for (@_) {
+	    *{"$callpkg\::$_"} = \&{"$pkg\::$_"};
+	}
+    }
 }
 
 1;
