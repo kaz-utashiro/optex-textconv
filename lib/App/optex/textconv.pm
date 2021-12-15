@@ -159,6 +159,12 @@ our @CONVERTER;
 use App::optex::textconv::default;
 use App::optex::textconv::msdoc;
 
+use Exporter 'import';
+
+our @EXPORT = ();
+our @EXPORT_OK = qw(initialize finalize load);
+our %EXPORT_TAGS = ( alias => \@EXPORT_OK );
+
 my($mod, $argv);
 sub initialize {
     ($mod, $argv) = @_;
