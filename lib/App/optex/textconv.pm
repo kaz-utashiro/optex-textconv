@@ -76,7 +76,7 @@ See L<App::optex::textconv::pandoc>.
 
 =item tika
 
-Use L<Pache Tika|https://tika.apache.org/> command to translate
+Use L<Apache Tika|https://tika.apache.org/> command to translate
 Microsoft office document in XML and non-XML format.
 See L<App::optex::textconv::tika>.
 
