@@ -1,6 +1,6 @@
 package App::optex::textconv;
 
-our $VERSION = '0.14';
+our $VERSION = '0.1401';
 
 use v5.14;
 use warnings;
@@ -16,7 +16,7 @@ textconv - optex module to replace document file by its text contents
 
 =head1 VERSION
 
-Version 0.14
+Version 0.1401
 
 =head1 SYNOPSIS
 
