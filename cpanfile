@@ -4,9 +4,10 @@ requires 'Archive::Zip', '1.37';
 requires 'Encode';
 requires 'List::Util', '1.45';
 requires 'Text::Extract::Word';
-requires 'XML::LibXML';
-requires 'XML::LibXSLT';
 requires 'perl', 'v5.14.0';
+
+recommends 'XML::LibXML';
+recommends 'XML::LibXSLT';
 
 on configure => sub {
     requires 'Module::Build::Tiny', '0.035';

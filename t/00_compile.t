@@ -12,8 +12,14 @@ use_ok $_ for qw(
     App::optex::textconv::tika
     App::optex::textconv::ooxml
     App::optex::textconv::ooxml::regex
-    App::optex::textconv::ooxml::xslt
 );
+
+TODO: {
+    local $TODO = 'May not be installed';
+    use_ok $_ for qw(
+	App::optex::textconv::ooxml::xslt
+    );
+}
 
 done_testing;
 

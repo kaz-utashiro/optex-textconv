@@ -41,6 +41,10 @@
          }
       },
       "runtime" : {
+         "recommends" : {
+            "XML::LibXML" : "0",
+            "XML::LibXSLT" : "0"
+         },
          "requires" : {
             "App::optex" : "v0.5.2",
             "App::optex::Tmpfile" : "0",
@@ -48,8 +52,6 @@
             "Encode" : "0",
             "List::Util" : "1.45",
             "Text::Extract::Word" : "0",
-            "XML::LibXML" : "0",
-            "XML::LibXSLT" : "0",
             "perl" : "v5.14.0"
          }
       },
