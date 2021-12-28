@@ -42,11 +42,14 @@
       },
       "runtime" : {
          "requires" : {
-            "App::optex" : "v0.3.0",
+            "App::optex" : "v0.5.2",
             "App::optex::Tmpfile" : "0",
             "Archive::Zip" : "1.37",
             "Encode" : "0",
             "List::Util" : "1.45",
+            "Text::Extract::Word" : "0",
+            "XML::LibXML" : "0",
+            "XML::LibXSLT" : "0",
             "perl" : "v5.14.0"
          }
       },

@@ -1,8 +1,11 @@
-requires 'App::optex', 'v0.3.0';
+requires 'App::optex', 'v0.5.2';
 requires 'App::optex::Tmpfile';
 requires 'Archive::Zip', '1.37';
 requires 'Encode';
 requires 'List::Util', '1.45';
+requires 'Text::Extract::Word';
+requires 'XML::LibXML';
+requires 'XML::LibXSLT';
 requires 'perl', 'v5.14.0';
 
 on configure => sub {

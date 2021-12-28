@@ -6,6 +6,8 @@ use v5.14;
 use warnings;
 use Encode;
 
+use App::optex v0.5.2;
+
 =encoding utf-8
 
 =head1 NAME

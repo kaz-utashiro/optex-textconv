@@ -9,7 +9,6 @@ use utf8;
 use Encode;
 use Data::Dumper;
 
-use App::optex v0.3;
 use App::optex::textconv::Converter 'import';
 
 our @EXPORT_OK = qw(to_text get_list);
