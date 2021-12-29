@@ -10,24 +10,12 @@ use App::optex::textconv::Converter 'import';
 
 our @CONVERTER;
 
-BEGIN {
+use App::optex::textconv::ooxml::regex;
 
-    require App::optex::textconv::ooxml::regex;
-
-    if (eval { require App::optex::textconv::ooxml::xslt }) {
-	@CONVERTER = (
-	    [ qr/\.doc[xm]$/ => \&App::optex::textconv::ooxml::xslt::to_text ],
-	    [ qr/\.ppt[xm]$/ => \&App::optex::textconv::ooxml::xslt::to_text ],
-	    [ qr/\.xls[xm]$/ => \&App::optex::textconv::ooxml::regex::to_text ],
-	    );
-    } else {
-	@CONVERTER = (
-	    [ qr/\.doc[xm]$/ => \&App::optex::textconv::ooxml::regex::to_text ],
-	    [ qr/\.ppt[xm]$/ => \&App::optex::textconv::ooxml::regex::to_text ],
-	    [ qr/\.xls[xm]$/ => \&App::optex::textconv::ooxml::regex::to_text ],
-	    );
-    }
-
-}
+eval {
+    require App::optex::textconv::ooxml::xslt;
+} and do {
+    import  App::optex::textconv::ooxml::xslt;
+};
 
 1;
