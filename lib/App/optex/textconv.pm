@@ -54,7 +54,21 @@ Next command simply produces the same result.
 
 Microsoft office format files in XML (.docx, .pptx, .xlsx, .docm,
 .pptm, .xlsm).
-See L<App::optex::textconv::msdoc>.
+Use
+L<App::optex::textconv::msdoc>,
+L<App::optex::textconv::ooxml>,
+L<App::optex::textconv::ooxml::regex>,
+L<App::optex::textconv::ooxml::xslt>.
+
+=item doc
+
+Microsoft Word file.
+Use L<Text::Extract::Word> module.
+
+=item xls
+
+Microsoft Excel file.
+Use L<Spreadsheet::ParseExcel> module.
 
 =item pdf
 
@@ -147,7 +161,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright 2019-2021 Kazumasa Utashiro.
+Copyright 2019-2022 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
