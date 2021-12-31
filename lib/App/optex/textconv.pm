@@ -266,7 +266,8 @@ sub textconv {
 	    my $data = do {
 		no strict 'refs';
 		use charnames ':full';
-		local $_ = decode 'utf8', &$func($_);
+		local $_ = &$func($_);
+		$_ = decode 'utf8', $_ unless utf8::is_utf8($_);
 		s/[\p{Private_Use}\p{Unassigned}]/\N{GETA MARK}/g;
 		encode 'utf8', $_;
 	    };
