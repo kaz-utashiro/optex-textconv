@@ -261,16 +261,19 @@ sub textconv {
 		    next;
 		}
 	    };
-	    use App::optex::Tmpfile;
-	    my $tmp = $persist[@persist] = App::optex::Tmpfile->new;
 	    my $data = do {
 		no strict 'refs';
 		use charnames ':full';
-		local $_ = &$func($_);
+		local $_ = &$func($_) // do {
+		    warn "$_: READ ERROR in textconv module.\n";
+		    next;
+		};
 		$_ = decode 'utf8', $_ unless utf8::is_utf8($_);
 		s/[\p{Private_Use}\p{Unassigned}]/\N{GETA MARK}/g;
 		encode 'utf8', $_;
 	    };
+	    use App::optex::Tmpfile;
+	    my $tmp = $persist[@persist] = App::optex::Tmpfile->new;
 	    $_ = $tmp->write($data)->rewind->path;
 	}
 	@_;
