@@ -2,9 +2,8 @@ package App::optex::textconv::tika;
 
 our $VERSION = '1.01';
 
-use v5.14;
+use strict;
 use warnings;
-use Carp;
 
 use App::optex::textconv::Converter 'import';
 
