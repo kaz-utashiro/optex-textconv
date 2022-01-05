@@ -258,18 +258,15 @@ sub textconv {
 		    }
 		}
 		elsif ($suffix) {
-		    state %loaded;
-		    my $state = \$loaded{$suffix};
+		    state %tried;
 		    my $to_text = join '::', __PACKAGE__, $suffix, 'to_text';
-		    if (not defined $$state) {
-			$$state = 0;
-			load_module $suffix or next;
-			$$state = 1 if defined &{$to_text};
-			redo;
-		    } elsif ($$state) {
+		    if (defined &{$to_text}) {
 			$to_text;
-		    } else {
+		    } elsif ($tried{$suffix}++) {
 			next;
+		    } else {
+			load_module $suffix or next;
+			redo;
 		    }
 		} else {
 		    next;
