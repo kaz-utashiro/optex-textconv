@@ -102,8 +102,11 @@ See L<App::optex::textconv::tika>.
 
 Microsoft office document in XML format (.docx, .pptx, .xlsx) is
 converted to plain text by original code implemented in
-L<App::optex::textconv::msdoc> module.  Algorithm used in this module
-is extremely simple, and consequently runs fast.
+L<App::optex::textconv::ooxml::regex> module.  Algorithm used in this
+module is extremely simple, and consequently runs fast.
+
+If related modules are available, L<App::optex::textconv::ooxml::xslt>
+is used to covert XML using XSLT mechanism.
 
 Two module are included in this distribution to use other external
 converter program, B<pandoc> and B<tika>, those implement much more
@@ -118,9 +121,7 @@ with module declaration like:
 
 =head2 CPANM
 
-    $ cpanm App::optex::textconv
-    or
-    $ curl -sL http://cpanmin.us | perl - App::optex::textconv
+    cpanm App::optex::textconv
 
 =head2 GIT
 
