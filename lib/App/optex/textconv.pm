@@ -191,20 +191,10 @@ sub finalize {
     @$argv = textconv(@$argv);
 }
 
-sub hit {
-    local $_ = shift;
-    my $check = shift;
-    if (ref $check eq 'CODE') {
-	$check->();
-    } else {
-	/$check/;
-    }
-}
-
 sub converter {
     my $filename = shift;
-    if (my $ent = first { hit $filename, $_->[0] } @CONVERTER) {
-	return $ent->[1];
+    if (my $ent = first { $_->treat($filename) } @CONVERTER) {
+	return $ent;
     }
     undef;
 }
@@ -237,19 +227,15 @@ my @persist;
 sub textconv {
   ARGV:
     for (@_) {
-	# check file existence
-	do {{
-	    m[^https?://] and last; # skip URL
-	    -f or next ARGV;
-	}};
 	my($suffix) = map { lc } /\.(\w+)$/x;
 	my $func = do {
-	    if (my $converter = converter $_) {
-		if (ref $converter eq 'CODE') {
-		    $converter;
+	    if (my $c = converter $_) {
+		my $textize = $c->textize;
+		if (ref $textize eq 'CODE') {
+		    $textize;
 		}
 		else {
-		    sub { exec_command $converter, $_ };
+		    sub { exec_command $textize, $_ };
 		}
 	    }
 	    elsif ($suffix) {
