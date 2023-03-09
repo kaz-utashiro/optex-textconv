@@ -37,6 +37,10 @@ Next command simply produces the same result.
 
 ## FILE FORMATS
 
+- git
+
+    [git(1)](http://man.he.net/man1/git) file object. Like `HEAD^:README.md`.
+
 - msdoc
 
     Microsoft office format files in XML (.docx, .pptx, .xlsx, .docm,
@@ -147,7 +151,7 @@ Kazumasa Utashiro
 
 # LICENSE
 
-Copyright 2019-2022 Kazumasa Utashiro.
+Copyright 2019-2023 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

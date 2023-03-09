@@ -50,6 +50,10 @@ Next command simply produces the same result.
 
 =over 7
 
+=item git
+
+L<git(1)> file object. Like C<HEAD^:README.md>.
+
 =item msdoc
 
 Microsoft office format files in XML (.docx, .pptx, .xlsx, .docm,
@@ -162,7 +166,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright 2019-2022 Kazumasa Utashiro.
+Copyright 2019-2023 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
@@ -175,6 +179,7 @@ use List::Util 1.45 qw(first);
 our @CONVERTER;
 use App::optex::textconv::default;
 use App::optex::textconv::msdoc;
+use App::optex::textconv::git;
 
 use Exporter 'import';
 
