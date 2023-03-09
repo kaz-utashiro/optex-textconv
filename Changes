@@ -2,6 +2,10 @@ Revision history for Perl extension App-optex-textconv
 
 {{$NEXT}}
 
+1.04 2023-03-09T03:50:37Z
+
+    - Introduce textconv::git module to handle git file object.
+
 1.03 2022-06-21T10:48:49Z
 
     - Simplified @ARGV handling.

@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        perl: [ '5.34', '5.18', '5.14' ]
+        perl: [ '5.36', '5.18', '5.14' ]
     name: Perl ${{ matrix.perl }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: recursive
       - name: Setup perl
@@ -21,5 +21,5 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
       - run: perl -V
-      - run: cpanm --installdeps --notest --with-recommends .
+      - run: cpanm --installdeps --notest --with-recommends --quiet .
       - run: prove -lrv t

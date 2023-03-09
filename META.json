@@ -46,7 +46,7 @@
             "XML::LibXSLT" : "0"
          },
          "requires" : {
-            "App::optex" : "v0.5.2",
+            "App::optex" : "v0.5.4",
             "App::optex::Tmpfile" : "0",
             "Archive::Zip" : "1.37",
             "Encode" : "0",
@@ -74,7 +74,7 @@
          "web" : "https://github.com/kaz-utashiro/optex-textconv"
       }
    },
-   "version" : "1.03",
+   "version" : "1.04",
    "x_authority" : "cpan:UTASHIRO",
    "x_contributors" : [
       "Kazumasa Utashiro <kaz@utashiro.com>"
