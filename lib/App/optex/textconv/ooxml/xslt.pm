@@ -30,6 +30,7 @@ my %styles = (
 ##     for .//w:r {
 ##         for w:t {
 ##             s/w:tab/  /g;
+##             s/w:br/\n/g;
 ##             print value;
 ##         }
 ##     }
@@ -58,6 +59,9 @@ docx => q{
     </xsl:for-each>
     <xsl:for-each select="w:tab">
       <xsl:text>  </xsl:text>
+    </xsl:for-each>
+    <xsl:for-each select="w:br">
+      <xsl:text>&#10;</xsl:text>
     </xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>
