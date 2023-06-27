@@ -53,17 +53,32 @@ sub _xml2text {
     my $param = $param{$type} or die;
 
     my @p;
-    while (m{<(?<tag>[apw]:p|si)\b[^>]*>(?<para>.*?)</\g{tag}>}sg) {
-	my $p = $+{para};
+    my $fn_id = "";
+    while (m{
+	     (?<footnote> <w:footnote \s+ w:id="(?<fn_id>\d+)" )
+	   | <(?<tag>[apw]:p|si)\b[^>]*>(?<para>.*?)</\g{tag}>
+	   }xsg) {
+	if ($+{footnote}) {
+	    $fn_id = $+{fn_id};
+	    next;
+	}
+	my $para = $+{para};
 	my @s;
-	while ($p =~ m{
-	       (?<br> <[aw]:br/> )
-	       |
-	       (?<tab> <w:tab/> | <w:tabs> )
-	       |
-	       <(?<tag>(?:[apw]:)?t)\b[^>]*> (?<text>[^<]*?) </\g{tag}>
+	while ($para =~ m{
+	         (?<fn_ref> <w:footnoteReference \s+ w:id="(?<fn_id>\d+)" )
+	       | (?<footnote> <w:footnote \s+ w:id="(?<fn_id>\d+)" )
+	       | (?<footnoteRef> <w:footnoteRef/> )
+	       | (?<br> <[aw]:br/> )
+	       | (?<tab> <w:tab/> | <w:tabs> )
+	       | <(?<tag>(?:[apw]:)?t)\b[^>]*> (?<text>[^<]*?) </\g{tag}>
 	       }xsg) {
-	    if ($+{br}) {
+	    if ($+{fn_ref}) {
+		push @s, "[^$+{fn_id}]";
+	    } elsif ($+{footnote}) {
+		$fn_id = $+{fn_id};
+	    } elsif ($+{footnoteRef}) {
+		push @s, "[^$fn_id]:";
+	    } elsif ($+{br}) {
 		push @s, "\n";
 	    } elsif ($+{tab}) {
 		push @s, "  ";

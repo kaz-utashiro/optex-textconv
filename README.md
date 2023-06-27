@@ -99,9 +99,6 @@ converted to plain text by original code implemented in
 [App::optex::textconv::ooxml::regex](https://metacpan.org/pod/App%3A%3Aoptex%3A%3Atextconv%3A%3Aooxml%3A%3Aregex) module.  Algorithm used in this
 module is extremely simple, and consequently runs fast.
 
-If related modules are available, [App::optex::textconv::ooxml::xslt](https://metacpan.org/pod/App%3A%3Aoptex%3A%3Atextconv%3A%3Aooxml%3A%3Axslt)
-is used to covert XML using XSLT mechanism.
-
 Two module are included in this distribution to use other external
 converter program, **pandoc** and **tika**, those implement much more
 serious algorithm.  They can be invoked by calling **load** function

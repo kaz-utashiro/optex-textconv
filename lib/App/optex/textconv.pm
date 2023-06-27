@@ -114,8 +114,12 @@ converted to plain text by original code implemented in
 L<App::optex::textconv::ooxml::regex> module.  Algorithm used in this
 module is extremely simple, and consequently runs fast.
 
+=begin COMMENT
+
 If related modules are available, L<App::optex::textconv::ooxml::xslt>
 is used to covert XML using XSLT mechanism.
+
+=end COMMENT
 
 Two module are included in this distribution to use other external
 converter program, B<pandoc> and B<tika>, those implement much more
