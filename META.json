@@ -4,7 +4,7 @@
       "Kazumasa Utashiro"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.1.20, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Minilla/v3.1.21, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -41,10 +41,6 @@
          }
       },
       "runtime" : {
-         "recommends" : {
-            "XML::LibXML" : "0",
-            "XML::LibXSLT" : "0"
-         },
          "requires" : {
             "App::optex" : "v0.5.4",
             "App::optex::Tmpfile" : "0",

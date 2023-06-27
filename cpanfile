@@ -7,8 +7,8 @@ requires 'List::Util', '1.45';
 requires 'Text::Extract::Word';
 requires 'Spreadsheet::ParseExcel';
 
-recommends 'XML::LibXML';
-recommends 'XML::LibXSLT';
+#recommends 'XML::LibXML';
+#recommends 'XML::LibXSLT';
 
 on configure => sub {
     requires 'Module::Build::Tiny', '0.035';
