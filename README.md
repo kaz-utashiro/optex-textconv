@@ -75,6 +75,11 @@ Next command simply produces the same result.
     Name start with `http://` or `https://` is converted to text data
     translated by [w3c(1)](http://man.he.net/man1/w3c) command.
 
+- gpg
+
+    Invoke [gpg(1)](http://man.he.net/man1/gpg) command to decrypt encrypted files with `.gpg`
+    extention.
+
 - pandoc
 
     Use [pandoc](https://pandoc.org/) command to translate Microsoft

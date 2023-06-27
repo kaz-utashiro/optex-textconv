@@ -88,6 +88,11 @@ JPEG files is converted to their exif information (.jpeg, .jpg).
 Name start with C<http://> or C<https://> is converted to text data
 translated by L<w3c(1)> command.
 
+=item gpg
+
+Invoke L<gpg(1)> command to decrypt encrypted files with C<.gpg>
+extention.
+
 =item pandoc
 
 Use L<pandoc|https://pandoc.org/> command to translate Microsoft
