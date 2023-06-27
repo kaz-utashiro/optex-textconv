@@ -42,7 +42,7 @@
       },
       "runtime" : {
          "requires" : {
-            "App::optex" : "v0.5.4",
+            "App::optex" : "v0.6.0",
             "App::optex::Tmpfile" : "0",
             "Archive::Zip" : "1.37",
             "Encode" : "0",
@@ -70,7 +70,7 @@
          "web" : "https://github.com/kaz-utashiro/optex-textconv"
       }
    },
-   "version" : "1.05",
+   "version" : "1.06",
    "x_authority" : "cpan:UTASHIRO",
    "x_contributors" : [
       "Kazumasa Utashiro <kaz@utashiro.com>"
