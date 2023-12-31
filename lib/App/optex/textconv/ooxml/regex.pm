@@ -99,6 +99,7 @@ use Archive::Zip 1.37 qw( :ERROR_CODES :CONSTANTS );
 sub to_text {
     my $file = shift;
     my $type = ($file =~ /\.((?:doc|xls|ppt)[xm])$/)[0] or return;
+    return '' if -z $file;
     my $zip = Archive::Zip->new($file) or die;
     my @contents;
     for my $entry (get_list($zip, $type)) {
