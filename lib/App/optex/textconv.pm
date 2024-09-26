@@ -81,7 +81,7 @@ See L<App::optex::textconv::pdf>.
 
 =item jpeg
 
-JPEG files is converted to their exif information (.jpeg, .jpg).
+JPEG file is converted to its exif information (.jpeg, .jpg).
 
 =item http
 
@@ -121,8 +121,8 @@ is used to covert XML using XSLT mechanism.
 
 =end COMMENT
 
-Two module are included in this distribution to use other external
-converter program, B<pandoc> and B<tika>, those implement much more
+Two modules are included in this distribution to use other external
+converter program, B<pandoc> and B<tika>, which implement much more
 serious algorithm.  They can be invoked by calling B<load> function
 with module declaration like:
 
@@ -167,6 +167,8 @@ L<https://github.com/kaz-utashiro/optex-textconv>
 
 L<https://qiita.com/kaz-utashiro/items/23fd825bd325240592c2>
 
+L<https://qiita.com/kaz-utashiro/items/7c11337468c63fdfdccb>
+
 L<https://github.com/kaz-utashiro/sdif-tools>
 
 =head1 AUTHOR
@@ -175,7 +177,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright 2019-2023 Kazumasa Utashiro.
+Copyright 2019-2024 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
