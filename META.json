@@ -4,7 +4,7 @@
       "Kazumasa Utashiro"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.1.23, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Minilla/v3.1.25, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -24,6 +24,19 @@
          "author",
          "builder"
       ]
+   },
+   "optional_features" : {
+      "xslt" : {
+         "description" : "XSLT impelementation",
+         "prereqs" : {
+            "runtime" : {
+               "recommends" : {
+                  "XML::LibXML" : "0",
+                  "XML::LibXSLT" : "0"
+               }
+            }
+         }
+      }
    },
    "prereqs" : {
       "configure" : {
