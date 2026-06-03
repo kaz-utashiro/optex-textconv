@@ -280,8 +280,8 @@ sub textconv {
 	    s/[\p{Private_Use}\p{Unassigned}]/\N{GETA MARK}/g;
 	    encode 'utf8', $_;
 	};
-	use App::optex::Tmpfile;
-	my $tmp = $persist[@persist] = App::optex::Tmpfile->new;
+	use Command::Run::Tmpfile;
+	my $tmp = $persist[@persist] = Command::Run::Tmpfile->new(raw => 1);
 	$_ = $tmp->write($data)->rewind->path;
     }
     @_;

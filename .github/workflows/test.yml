@@ -21,5 +21,5 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
       - run: perl -V
-      - run: cpanm --installdeps --notest --with-recommends --quiet .
+      - run: cpanm --metacpan --installdeps --notest --with-recommends --quiet .
       - run: prove -lrv t

@@ -1,6 +1,6 @@
 requires 'perl', 'v5.14.0';
 requires 'App::optex', 'v0.6';
-requires 'App::optex::Tmpfile';
+requires 'Command::Run', '1.01';
 requires 'Archive::Zip', '1.37';
 requires 'Encode';
 requires 'List::Util', '1.45';
